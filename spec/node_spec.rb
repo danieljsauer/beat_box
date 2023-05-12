@@ -12,7 +12,7 @@ describe Node do
         expect(node.data).to eq("ts")
     end 
 
-    xit "can move to the next node" do
+    it "can move to the next node" do
         node = Node.new("ts")
         expect(node.next_node).to eq(nil) 
     end 
