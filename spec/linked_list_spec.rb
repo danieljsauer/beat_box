@@ -15,32 +15,48 @@ describe LinkedList do
         end 
     end
 
-    describe "Instance methods" do 
-
-        it "append: creates a new node instance" do 
+    describe "append method" do 
+        it "creates a new node instance" do 
             list = LinkedList.new
-            new_node = list.append("bts")
-            expect(new_node).to be_instance_of(Node)
+            tnode = list.append("bts")
+            expect(tnode).to be_instance_of(Node)
         end 
 
-        it "append: can pass data into current node" do
+        it "can pass data into current node" do
             list = LinkedList.new
-            new_node = list.append("bts")
-            expect(new_node.data).to eq("bts")
+            tnode = list.append("bts")
+            expect(tnode.data).to eq("bts")
         end
 
-        it "append: sets first node as head" do
+        it "sets first node as head" do
             list = LinkedList.new
             list.append("bts")
             expect(list.head.data).to eq("bts")
         end
 
-        it "append: moves to the next node" do
+        it "head points towards nil " do
             list = LinkedList.new
             list.append("bts")
-            expect(list.head.next_node).to eq(nil)
+            expect(list.head.next_node_pointer).to eq(nil)
         end 
 
+        it "moves to the next node" do
+            list = LinkedList.new
+            list.append("bts")
+            list.append("kuh")
+            expect(list.head.next_node_pointer.next_node_pointer).to eq(nil)
+        end
+
+        it "adds nodes in the correct order" do
+            list = LinkedList.new
+            list.append("bts")
+            list.append("kuh")
+            expect(list.head.next_node_pointer.data).to eq("kuh")
+        end
+        
+    end 
+        
+    describe "other instance methods" do 
         xit "count: counts the number of nodes in the list" do
             list = LinkedList.new
             list.append("bts")
