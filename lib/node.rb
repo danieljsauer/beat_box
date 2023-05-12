@@ -2,6 +2,7 @@ class Node
 
     attr_reader :data
     attr_accessor :next_node 
+    #I am using accessor for next_node because the linked_list will be altering this data, but I need it to be stored within the node. Unsure if this is the correct appraoch.
 
     def initialize(data)
         @data = data
