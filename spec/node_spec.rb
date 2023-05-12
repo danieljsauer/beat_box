@@ -12,8 +12,8 @@ describe Node do
         expect(node.data).to eq("ts")
     end 
 
-    it "can move to the next node" do
+    it "next_node_pointer default value is nil" do
         node = Node.new("ts")
-        expect(node.next_node).to eq(nil) 
+        expect(node.next_node_pointer).to eq(nil) 
     end 
 end 
