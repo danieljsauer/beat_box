@@ -89,5 +89,14 @@ describe LinkedList do
         list.appened("bts")
         expect(list.to_string).to eq("bts") 
     end 
+
+    xit "to_string: prints the entire list with each item seperated by a space" do 
+        list = LinkedList.new
+        list.append("bts")
+        list.append("ts")
+        list.append("kuh")
+        list.append("bts")
+        expect(list.to_string).to eq("bts ts kuh bts") 
+    end 
   end 
 end 
