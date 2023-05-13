@@ -38,5 +38,21 @@ class LinkedList
       return counter
     end 
   end 
+
+  def to_string 
+    if @head == nil 
+      return "No items in list"
+    else
+      items = []
+      items << head.data 
+      current_node = @head 
+      until current_node.next_node_pointer == nil 
+        current_node = current_node.next_node_pointer
+        items << current_node.data 
+      end
+    end
+    items = items.join(" ")
+    return items
+  end  
 end
   
