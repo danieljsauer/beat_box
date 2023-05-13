@@ -106,7 +106,7 @@ describe LinkedList do
         end 
     end
     describe "prepend" do
-        xit "can add items into the list" do
+        it "can add items into the list" do
             list = LinkedList.new
             list.prepend("ts")
             expect(list.head.data).to eq("ts")
@@ -142,6 +142,10 @@ describe LinkedList do
             list.append("bts")
             expect(list.to_string).to eq("kuh bts ts bts") 
         end  
+        xit "only accepts string data"do
+        list = LinkedList.new
+        expect(list.append(42)).to eq ("Invalid Entry")
+        end 
     end 
     describe "insert" do
         xit do
