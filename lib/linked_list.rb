@@ -24,6 +24,14 @@ class LinkedList
     end 
   end
 
+  def prepend(data) 
+    if data.is_a?(String)
+      append(data)
+    else 
+      return "Invalid Entry"
+    end 
+  end 
+
   def count
     if @head == nil 
       return 0
