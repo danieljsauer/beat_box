@@ -64,18 +64,18 @@ describe LinkedList do
         
   describe "other instance methods" do 
     describe"count" do
-        it "count: count begins at 0" do
+        it "count begins at 0" do
             list = LinkedList.new
             expect(list.count).to eq(0)
         end
 
-        it "count: counter is set to 1 by default if @head != nil" do
+        it "counter is set to 1 by default if @head != nil" do
             list = LinkedList.new
             list.append("bts")
             expect(list.count).to eq(1)
         end
 
-        it "count: counts the number of nodes in the list" do
+        it "counts the number of nodes in the list" do
             list = LinkedList.new
             list.append("bts")
             list.append("ts")
@@ -85,18 +85,18 @@ describe LinkedList do
         end
     end 
     describe "to_string" do
-        it "to_string: has a default return if no items are in the list" do 
+        it "has a default return if no items are in the list" do 
             list = LinkedList.new
             expect(list.to_string).to eq("No items in list") 
         end 
 
-        it "to_string: prints the data of the head node as a string" do 
+        it "prints the data of the head node as a string" do 
             list = LinkedList.new
             list.append("bts")
             expect(list.to_string).to eq("bts") 
         end 
 
-        it "to_string: prints the data of all node in the list, seperated by a space" do 
+        it "prints the data of all node in the list, seperated by a space" do 
             list = LinkedList.new
             list.append("bts")
             list.append("ts")
@@ -106,8 +106,30 @@ describe LinkedList do
         end 
     end
     describe "prepend" do
-        xit do
+        xit "becomes the head node" do
+            list = LinkedList.new
+            list.append("bts")
+            list.preappend("ts")
+            expect(list.head.data).to eq("ts")
         end
+        xit "points towards nil if used on empty list" do
+            list = LinkedList.new
+            list.preappend("ts")
+            expect(list.head.next_node_pointer).to eq(nil)
+        end
+        xit "points towards the old head node if replacing head" do
+            list = LinkedList.new
+            list.append("bts")
+            list.preappend("ts")
+            expect(list.head.next_node_pointer.data).to eq("bts")
+        end
+        xit "connects all nodes together properly" do
+            list.append("bts")
+            list.append("ts")
+            list.preappend("kuh")
+            list.append("bts")
+            expect(list.to_string).to eq("kuh bts ts bts") 
+        end  
     end 
     describe "insert" do
         xit do
