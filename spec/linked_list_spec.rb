@@ -105,5 +105,13 @@ describe LinkedList do
             expect(list.to_string).to eq("bts ts kuh bts") 
         end 
     end
+    describe "prepend" do
+        xit do
+        end
+    end 
+    describe "insert" do
+        xit do
+        end
+    end  
   end 
 end 
