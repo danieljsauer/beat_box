@@ -108,7 +108,6 @@ describe LinkedList do
     describe "prepend" do
         xit "becomes the head node" do
             list = LinkedList.new
-            list.append("bts")
             list.preappend("ts")
             expect(list.head.data).to eq("ts")
         end
