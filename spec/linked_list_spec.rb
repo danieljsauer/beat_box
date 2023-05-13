@@ -53,6 +53,12 @@ describe LinkedList do
         list.append("kuh")
         expect(list.head.next_node_pointer.data).to eq("kuh")
     end
+
+    it "data can only be a string" do
+        list = LinkedList.new
+        expect(list.append(42)).to eq ("Invalid Entry")
+        expect(list.count).to eq (0)
+    end 
         
   end 
         
