@@ -84,13 +84,18 @@ describe LinkedList do
         expect(list.count).to eq(4)
     end
 
-    xit "to_string: prints the current data of all nodes as a string" do 
+    it "to_string: has a default return if no items are in the list" do 
         list = LinkedList.new
-        list.appened("bts")
+        expect(list.to_string).to eq("No items in list") 
+    end 
+
+    it "to_string: prints the data of the head node as a string" do 
+        list = LinkedList.new
+        list.append("bts")
         expect(list.to_string).to eq("bts") 
     end 
 
-    xit "to_string: prints the entire list with each item seperated by a space" do 
+    it "to_string: prints the data of all node in the list, seperated by a space" do 
         list = LinkedList.new
         list.append("bts")
         list.append("ts")
