@@ -63,45 +63,47 @@ describe LinkedList do
   end 
         
   describe "other instance methods" do 
+    describe"count" do
+        it "count: count begins at 0" do
+            list = LinkedList.new
+            expect(list.count).to eq(0)
+        end
 
-    it "count: count begins at 0" do
-        list = LinkedList.new
-        expect(list.count).to eq(0)
-    end
+        it "count: counter is set to 1 by default if @head != nil" do
+            list = LinkedList.new
+            list.append("bts")
+            expect(list.count).to eq(1)
+        end
 
-    it "count: counter is set to 1 by default if @head != nil" do
-        list = LinkedList.new
-        list.append("bts")
-        expect(list.count).to eq(1)
-    end
-
-    it "count: counts the number of nodes in the list" do
-        list = LinkedList.new
-        list.append("bts")
-        list.append("ts")
-        list.append("kuh")
-        list.append("bts")
-        expect(list.count).to eq(4)
-    end
-
-    it "to_string: has a default return if no items are in the list" do 
-        list = LinkedList.new
-        expect(list.to_string).to eq("No items in list") 
+        it "count: counts the number of nodes in the list" do
+            list = LinkedList.new
+            list.append("bts")
+            list.append("ts")
+            list.append("kuh")
+            list.append("bts")
+            expect(list.count).to eq(4)
+        end
     end 
+    describe "to_string" do
+        it "to_string: has a default return if no items are in the list" do 
+            list = LinkedList.new
+            expect(list.to_string).to eq("No items in list") 
+        end 
 
-    it "to_string: prints the data of the head node as a string" do 
-        list = LinkedList.new
-        list.append("bts")
-        expect(list.to_string).to eq("bts") 
-    end 
+        it "to_string: prints the data of the head node as a string" do 
+            list = LinkedList.new
+            list.append("bts")
+            expect(list.to_string).to eq("bts") 
+        end 
 
-    it "to_string: prints the data of all node in the list, seperated by a space" do 
-        list = LinkedList.new
-        list.append("bts")
-        list.append("ts")
-        list.append("kuh")
-        list.append("bts")
-        expect(list.to_string).to eq("bts ts kuh bts") 
-    end 
+        it "to_string: prints the data of all node in the list, seperated by a space" do 
+            list = LinkedList.new
+            list.append("bts")
+            list.append("ts")
+            list.append("kuh")
+            list.append("bts")
+            expect(list.to_string).to eq("bts ts kuh bts") 
+        end 
+    end
   end 
 end 
