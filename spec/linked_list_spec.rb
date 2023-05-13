@@ -106,26 +106,39 @@ describe LinkedList do
         end 
     end
     describe "prepend" do
+        xit "can add items into the list" do
+            list = LinkedList.new
+            list.prepend("ts")
+            expect(list.head.data).to eq("ts")
+            expect(list.head.next_node_pointer).to be nil 
+        end
         xit "becomes the head node" do
             list = LinkedList.new
-            list.preappend("ts")
+            list.append("bts")
+            list.prepend("ts")
             expect(list.head.data).to eq("ts")
-        end
-        xit "points towards nil if used on empty list" do
-            list = LinkedList.new
-            list.preappend("ts")
-            expect(list.head.next_node_pointer).to eq(nil)
         end
         xit "points towards the old head node if replacing head" do
             list = LinkedList.new
             list.append("bts")
-            list.preappend("ts")
+            list.prepend("ts")
             expect(list.head.next_node_pointer.data).to eq("bts")
+            expect(list.head.next_node_pointer.next_node_pointer).to be nil 
+
+        end
+        xit "old head node points towards the next node in list" do
+            list = LinkedList.new
+            list.append("bts")
+            list.prepend("ts")
+            list.append("kuh")
+            expect(list.head.next_node_pointer.next_node_pointer.data).to eq("kuh")
+            expect(list.head.next_node_pointer.next_node_pointer.next_node_pointer).to be nil 
+
         end
         xit "connects all nodes together properly" do
             list.append("bts")
             list.append("ts")
-            list.preappend("kuh")
+            list.prepend("kuh")
             list.append("bts")
             expect(list.to_string).to eq("kuh bts ts bts") 
         end  
