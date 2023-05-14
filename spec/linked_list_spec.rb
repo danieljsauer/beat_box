@@ -60,6 +60,15 @@ describe LinkedList do
         expect(list.append(42)).to eq ("Invalid Entry")
         expect(list.count).to eq (0)
     end 
+
+    it "data can only be 10 characters or fewer" do
+        list = LinkedList.new
+        expect(list.append("12345678901")).to eq ("Invalid Entry")
+        expect(list.count).to eq (0)
+        list.append("1234567890")
+        expect(list.head.data).to eq ("1234567890")
+        expect(list.count).to eq (1)
+    end 
         
   end 
         
@@ -125,7 +134,6 @@ describe LinkedList do
             list.prepend("ts")
             expect(list.head.next_node_pointer.data).to eq("bts")
             expect(list.head.next_node_pointer.next_node_pointer).to be nil 
-
         end
         it "old head node points towards the next node in list" do
             list = LinkedList.new
@@ -134,7 +142,6 @@ describe LinkedList do
             list.append("kuh")
             expect(list.head.next_node_pointer.next_node_pointer.data).to eq("kuh")
             expect(list.head.next_node_pointer.next_node_pointer.next_node_pointer).to be nil 
-
         end
         it "connects all nodes together properly" do
             list = LinkedList.new
@@ -147,6 +154,14 @@ describe LinkedList do
         it "only accepts string data"do
             list = LinkedList.new
             expect(list.append(42)).to eq ("Invalid Entry")
+        end 
+        it "data can only be 10 characters or fewer" do
+            list = LinkedList.new
+            expect(list.prepend("12345678901")).to eq ("Invalid Entry")
+            expect(list.count).to eq (0)
+            list.prepend("1234567890")
+            expect(list.head.data).to eq ("1234567890")
+            expect(list.count).to eq (1)
         end 
     end 
     describe "insert" do
@@ -164,16 +179,6 @@ describe LinkedList do
             list.insert(1, "kuh")
             expect(list.head.next_node_pointer.next_node_pointer.next_node_pointer).to be nil 
         end 
-        xit "can add multiple nodes to the list in the correct order with correct pointers"
-            list = LinkedList.new
-            list.append("bts")
-            list.append("ts")
-            list.append("caboose")
-            list.insert(1,"kuh","psh")
-            expect(list.head.next_node_pointer.next_node_pointer.data).to eq("psh")
-            expect(list.head.next_node_pointer.next_node_pointer.next_node_pointer.next_node_pointer.data).to eq("caboose")
-            expect(list.head.next_node_pointer.next_node_pointer.next_node_pointer.next_node_pointer.next_node_pointer).to be nil 
-        end
     end  
   end 
 end 
