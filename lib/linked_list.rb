@@ -108,10 +108,21 @@ class LinkedList
 
   def includes?(data)
     @head == nil ? (return "List is empty") : nil 
+
     if data.is_a?(String) && data.length <= 10
+      current_node = @head 
+      until current_node.next_node_pointer == nil 
+        if data == current_node.data 
+          return true 
+        else 
+        current_node = current_node.next_node_pointer 
+        end 
+      end 
+      return false 
     else 
       return "Invalid Entry"
     end 
   end 
+  
 end
   
