@@ -256,13 +256,18 @@ describe LinkedList do
         list.append("bts")
         expect(list.includes?(42)).to eq("Invalid Entry")
       end   
+      xit "only accepts data with 10 or fewer characters" do
+        list = LinkedList.new
+        list.append("bts")
+        expect(list.includes?("01234567891").to eq("Invalid Entry")
+      end   
       xit "checks list for argued data" do
         list = LinkedList.new
         list.append("bts")
         list.append("kuh")
         list.append("pttz")      
         list.append("bts")    
-        expect(list.include?("ts")).to be false 
+        expect(list.includes?("ts")).to be false 
         expect(list.includes?("bts")).to be true 
       end 
     end
