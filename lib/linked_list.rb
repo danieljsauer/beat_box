@@ -26,7 +26,9 @@ class LinkedList
 
   def prepend(data) 
     if data.is_a?(String)
-      append(data)
+      old_head = @head 
+      @head = Node.new(data)
+      head.next_node_pointer = old_head
     else 
       return "Invalid Entry"
     end 
