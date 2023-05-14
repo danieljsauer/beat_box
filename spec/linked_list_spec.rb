@@ -189,15 +189,25 @@ describe LinkedList do
         end
         xit "only accepts string data"do
             list = LinkedList.new
-            expect(list.insert(0,42)).to eq ("Invalid Entry")
+            expect(list.insert(0,42)).to eq("Invalid Entry")
         end 
         xit "data can only be 10 characters or fewer" do
             list = LinkedList.new
             expect(list.insert(0, "12345678901")).to eq ("Invalid Entry")
             expect(list.count).to eq (0)
             list.insert(0, "1234567890")
-            expect(list.head.data).to eq ("1234567890")
+            expect(list.head.data).to eq("1234567890")
             expect(list.count).to eq (1)
+        end 
+        xit "index only accepts integers"do
+            list = LinkedList.new
+            expect(list.insert("ts","ts")).to eq("Invalid Entry")
+        end 
+        xit "index cannot be greater than list length" do
+            list = LinkedList.new
+            expect(list.insert(1,"kuh")).to eq("Invalid Entry")
+            list.insert(1,"kuh")
+            expect(list.count).to eq (0)
         end 
     end  
   end 
