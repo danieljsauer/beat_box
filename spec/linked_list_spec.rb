@@ -247,16 +247,28 @@ describe LinkedList do
     end
 
     describe "includes?" do 
-      xit "checks list for requested data" do
+      xit "provides default response if list is empty" do
+        list = LinkedList.new
+        expect(list.includes?("bts")).to eq("List is empty")
+      end 
+      xit "only accepts string data" do
+        list = LinkedList.new
+        list.append("bts")
+        expect(list.includes?(42)).to eq("Invalid Entry")
+      end   
+      xit "checks list for argued data" do
         list = LinkedList.new
         list.append("bts")
         list.append("kuh")
-        list.append("pttz")     
+        list.append("pttz")      
+        list.append("bts")    
+        expect(list.include?("ts")).to be false 
+        expect(list.includes?("bts")).to be true 
       end 
     end
 
     describe "pop" do 
     end 
   end
-   
+
 end 
