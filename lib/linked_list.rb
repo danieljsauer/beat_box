@@ -35,6 +35,21 @@ class LinkedList
   end 
 
   def insert(index, data)
+    if data.is_a?(String) && data.length <= 10 && index.is_a?(Integer) && index <= count 
+      if index == 0
+        prepend(data)
+      else
+        new_node = Node.new(data)
+        prior_node = @head 
+        (index - 1).times do 
+          prior_node.next_node_pointer = prior_node
+        end 
+        new_node.next_node_pointer = prior_node.next_node_pointer
+        prior_node.next_node_pointer = new_node
+      end    
+    else 
+      return "Invalid Entry"
+    end 
   end 
 
   def count

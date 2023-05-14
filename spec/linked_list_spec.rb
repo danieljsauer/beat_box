@@ -165,21 +165,21 @@ describe LinkedList do
         end 
     end 
     describe "insert" do
-        xit "places the new node in the correct position" do
+        it "places the new node in the correct position" do
             list = LinkedList.new
             list.append("bts")
             list.append("ts")
             list.insert(1, "kuh")
             expect(list.head.next_node_pointer.data).to eq("kuh")
         end
-        xit "inserted node correctly points to next item on list" do
+        it "inserted node correctly points to next item on list" do
             list = LinkedList.new
             list.append("bts")
             list.append("ts")
             list.insert(1, "kuh")
             expect(list.head.next_node_pointer.next_node_pointer.next_node_pointer).to be nil 
         end 
-        xit "sets the head node if index position == 0" do
+        it "sets the head node if index position == 0" do
             list = LinkedList.new
             list.append("bts")
             list.append("ts")
@@ -187,11 +187,11 @@ describe LinkedList do
             expect(list.head.data).to eq("kuh")
             expect(list.head.next_node_pointer.next_node_pointer.next_node_pointer).to be nil 
         end
-        xit "only accepts string data"do
+        it "only accepts string data"do
             list = LinkedList.new
             expect(list.insert(0,42)).to eq("Invalid Entry")
         end 
-        xit "data can only be 10 characters or fewer" do
+        it "data can only be 10 characters or fewer" do
             list = LinkedList.new
             expect(list.insert(0, "12345678901")).to eq ("Invalid Entry")
             expect(list.count).to eq (0)
@@ -199,11 +199,11 @@ describe LinkedList do
             expect(list.head.data).to eq("1234567890")
             expect(list.count).to eq (1)
         end 
-        xit "index only accepts integers"do
+        it "index only accepts integers"do
             list = LinkedList.new
             expect(list.insert("ts","ts")).to eq("Invalid Entry")
         end 
-        xit "index cannot be greater than list length" do
+        it "index cannot be greater than list length" do
             list = LinkedList.new
             expect(list.insert(1,"kuh")).to eq("Invalid Entry")
             list.insert(1,"kuh")
