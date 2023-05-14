@@ -210,5 +210,25 @@ describe LinkedList do
             expect(list.count).to eq (0)
         end 
     end  
+    describe "find" do 
+        xit "returns the data from the selected node" do
+            list = LinkedList.new
+            list.append("bts")
+            list.append("kuh")
+            expect(list.find(1,1)).to eq("kuh")
+        end 
+        xit "can return multiple nodes of data in a string" do
+            list = LinkedList.new
+            list.append("bts")
+            list.append("kuh")
+            list.append("pttz")
+            list.append("ts")
+            expect(list.find(1,3)).to eq("kuh ptts ts")
+        end 
+    end 
+    describe "includes?" do 
+    end 
+    describe "pop" do 
+    end 
   end 
 end 
