@@ -211,23 +211,23 @@ describe LinkedList do
         end 
     end  
     describe "find" do 
-        xit "gives notice that list is empty if called upon empty list" do 
+        it "gives notice that list is empty if called upon empty list" do 
             list = LinkedList.new
             expect(list.find(0,1)).to eq("List is empty")
         end 
-        xit "only accepts integers as arguments" do
+        it "only accepts integers as arguments" do
             list = LinkedList.new
             list.append("bts")
             expect(list.find("bts",1)).to eq("Invalid Entry")
             expect(list.find(0,"bts")).to eq("Invalid Entry")
         end 
-        xit "returns the data from the selected node" do
+        it "returns the data from the selected node" do
             list = LinkedList.new
             list.append("bts")
             list.append("kuh")
             expect(list.find(1,1)).to eq("kuh")
         end 
-        xit "can return multiple nodes of data in a string" do
+        it "can return multiple nodes of data in a string" do
             list = LinkedList.new
             list.append("bts")
             list.append("kuh")
@@ -235,7 +235,7 @@ describe LinkedList do
             list.append("ts")
             expect(list.find(1,3)).to eq("kuh pttz ts")
         end 
-        xit "does not print nil if the number argument exceeds the list length" do 
+        it "does not break if the number argument exceeds the end of the list length" do 
             list = LinkedList.new
             list.append("bts")
             list.append("kuh")
