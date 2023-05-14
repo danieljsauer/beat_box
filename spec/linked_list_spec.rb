@@ -179,6 +179,26 @@ describe LinkedList do
             list.insert(1, "kuh")
             expect(list.head.next_node_pointer.next_node_pointer.next_node_pointer).to be nil 
         end 
+        xit "sets the head node if index position == 0" do
+            list = LinkedList.new
+            list.append("bts")
+            list.append("ts")
+            list.insert(0, "kuh")
+            expect(list.head.data).to eq("kuh")
+            expect(list.head.next_node_pointer.next_node_pointer.next_node_pointer).to be nil 
+        end
+        xit "only accepts string data"do
+            list = LinkedList.new
+            expect(list.insert(0,42)).to eq ("Invalid Entry")
+        end 
+        xit "data can only be 10 characters or fewer" do
+            list = LinkedList.new
+            expect(list.insert(0, "12345678901")).to eq ("Invalid Entry")
+            expect(list.count).to eq (0)
+            list.insert(0, "1234567890")
+            expect(list.head.data).to eq ("1234567890")
+            expect(list.count).to eq (1)
+        end 
     end  
   end 
 end 
