@@ -150,7 +150,29 @@ describe LinkedList do
         end 
     end 
     describe "insert" do
-        xit do
+        xit "places the new node in the correct position" do
+            list = LinkedList.new
+            list.append("bts")
+            list.append("ts")
+            list.insert(1, "kuh")
+            expect(list.head.next_node_pointer.data).to eq("kuh")
+        end
+        xit "inserted node correctly points to next item on list" do
+            list = LinkedList.new
+            list.append("bts")
+            list.append("ts")
+            list.insert(1, "kuh")
+            expect(list.head.next_node_pointer.next_node_pointer.next_node_pointer).to be nil 
+        end 
+        xit "can add multiple nodes to the list in the correct order with correct pointers"
+            list = LinkedList.new
+            list.append("bts")
+            list.append("ts")
+            list.append("caboose")
+            list.insert(1,"kuh","psh")
+            expect(list.head.next_node_pointer.next_node_pointer.data).to eq("psh")
+            expect(list.head.next_node_pointer.next_node_pointer.next_node_pointer.next_node_pointer.data).to eq("caboose")
+            expect(list.head.next_node_pointer.next_node_pointer.next_node_pointer.next_node_pointer.next_node_pointer).to be nil 
         end
     end  
   end 
