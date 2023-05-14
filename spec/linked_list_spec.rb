@@ -1,4 +1,5 @@
 require 'rspec'
+require 'pry'
 require './lib/node'
 require './lib/linked_list'
 
@@ -112,13 +113,13 @@ describe LinkedList do
             expect(list.head.data).to eq("ts")
             expect(list.head.next_node_pointer).to be nil 
         end
-        xit "becomes the head node" do
+        it "becomes the head node" do
             list = LinkedList.new
             list.append("bts")
             list.prepend("ts")
             expect(list.head.data).to eq("ts")
         end
-        xit "points towards the old head node if replacing head" do
+        it "points towards the old head node if replacing head" do
             list = LinkedList.new
             list.append("bts")
             list.prepend("ts")
@@ -126,7 +127,7 @@ describe LinkedList do
             expect(list.head.next_node_pointer.next_node_pointer).to be nil 
 
         end
-        xit "old head node points towards the next node in list" do
+        it "old head node points towards the next node in list" do
             list = LinkedList.new
             list.append("bts")
             list.prepend("ts")
@@ -135,16 +136,17 @@ describe LinkedList do
             expect(list.head.next_node_pointer.next_node_pointer.next_node_pointer).to be nil 
 
         end
-        xit "connects all nodes together properly" do
+        it "connects all nodes together properly" do
+            list = LinkedList.new
             list.append("bts")
             list.append("ts")
             list.prepend("kuh")
             list.append("bts")
             expect(list.to_string).to eq("kuh bts ts bts") 
         end  
-        xit "only accepts string data"do
-        list = LinkedList.new
-        expect(list.append(42)).to eq ("Invalid Entry")
+        it "only accepts string data"do
+            list = LinkedList.new
+            expect(list.append(42)).to eq ("Invalid Entry")
         end 
     end 
     describe "insert" do
