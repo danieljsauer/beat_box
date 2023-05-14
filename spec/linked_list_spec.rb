@@ -268,6 +268,7 @@ describe LinkedList do
         list.append("pttz")        
         expect(list.includes?("ts")).to be false 
         expect(list.includes?("bts")).to be true 
+        expect(list.includes?("kuh")).to be true 
       end 
     end
 
