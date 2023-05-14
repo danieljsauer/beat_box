@@ -105,5 +105,13 @@ class LinkedList
       return "Invalid Entry"
     end 
   end 
+
+  def includes?(data)
+    @head == nil ? (return "List is empty") : nil 
+    if data.is_a?(String) && data.length <= 10
+    else 
+      return "Invalid Entry"
+    end 
+  end 
 end
   
