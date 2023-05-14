@@ -225,6 +225,10 @@ describe LinkedList do
             list.append("ts")
             expect(list.find(1,3)).to eq("kuh ptts ts")
         end 
+        xit "gives notice that list is empty if called upon empty list" do 
+            list = LinkedList.new
+            expect(list.find(0,1)).to eq("List is empty")
+        end 
         xit "only accepts integers as arguments" do
             list = LinkedList.new
             list.append("bts")
