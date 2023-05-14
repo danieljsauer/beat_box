@@ -86,6 +86,16 @@ class LinkedList
   def find(index, number)
     @head == nil ? (return "List is empty") : nil 
       if index.is_a?(Integer) && index <= count && number.is_a?(Integer)
+        selected = []
+        current_node = @head 
+        index.times do 
+          current_node = current_node.next_node_pointer
+        end 
+        number.times do 
+          selected << current_node.data
+          current_node = current_node.next_node_pointer
+        end  
+        selected = selected.join(" ")
       else 
         return "Invalid Entry"
       end 
