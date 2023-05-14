@@ -225,6 +225,18 @@ describe LinkedList do
             list.append("ts")
             expect(list.find(1,3)).to eq("kuh ptts ts")
         end 
+        xit "only accepts integers as arguments" do
+            list = LinkedList.new
+            list.append("bts")
+            expect(list.find("bts",1)).to eq("Invalid Entry")
+            expect(list.find(0,"bts")).to eq("Invalid Entry")
+        end 
+        xit "does not print nil if the number argument exceeds the list length" do 
+            list = LinkedList.new
+            list.append("bts")
+            list.append("kuh")
+            expect(list.find(1,2)).to eq ("kuh")
+        end 
     end 
     describe "includes?" do 
     end 
