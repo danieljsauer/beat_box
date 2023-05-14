@@ -6,7 +6,7 @@ class LinkedList
   end
   
   def append(data)
-    if data.is_a?(String)
+    if data.is_a?(String) && data.length <= 10 
       new_node = Node.new(data)
   
       if @head == nil 
@@ -25,13 +25,16 @@ class LinkedList
   end
 
   def prepend(data) 
-    if data.is_a?(String)
+    if data.is_a?(String) && data.length <= 10 
       old_head = @head 
       @head = Node.new(data)
       head.next_node_pointer = old_head
     else 
       return "Invalid Entry"
     end 
+  end 
+
+  def insert(index, data)
   end 
 
   def count
