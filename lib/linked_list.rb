@@ -82,5 +82,13 @@ class LinkedList
     items = items.join(" ")
     return items
   end  
+
+  def find(index, number)
+    @head == nil ? (return "List is empty") : nil 
+      if index.is_a?(Integer) && index <= count && number.is_a?(Integer)
+      else 
+        return "Invalid Entry"
+      end 
+  end 
 end
   
