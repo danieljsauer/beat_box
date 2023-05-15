@@ -19,12 +19,12 @@ describe BeatBox do
   describe "LinkedList methods" do 
 
     describe "count" do 
-      xit "counts the number of node" do 
+      it "counts the number of node" do 
         bbox = BeatBox.new
-        bbox.append("bts")
-        bbox.append("pts")
-        bbox.append("kuh")
-        expect(bbox.count).to eq("3")
+        bbox.list.append("bts")
+        bbox.list.append("pts")
+        bbox.list.append("kuh")
+        expect(bbox.count).to eq(3)
       end 
     end 
 
