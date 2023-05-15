@@ -11,9 +11,20 @@ class BeatBox
   end 
 
   def append(data)
-    words = data.split
-      words.each do |word|
-        @list.append(word)
-      end 
+    if data.is_a?(String)
+       
+      words = data.split
+         words.each do |word|
+          if word.length <=10
+            @list.append(word)
+          else 
+            next 
+          end 
+        end 
+    else 
+      return "Invalid Entry"
+    end 
   end 
+
+
 end 
