@@ -47,7 +47,7 @@ class LinkedList
         new_node = Node.new(data)
         prior_node = @head 
         (index - 1).times do 
-          prior_node.next_node_pointer = prior_node
+          prior_node = prior_node.next_node_pointer 
         end 
         new_node.next_node_pointer = prior_node.next_node_pointer
         prior_node.next_node_pointer = new_node
