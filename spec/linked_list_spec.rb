@@ -273,7 +273,11 @@ describe LinkedList do
     end
 
     describe "pop" do 
-    end 
+      xit "removes the last element from the list" do 
+      end
+      xit "following a pop, new last items points to nil" do
+      end   
+    end   
   end
 
 end 
