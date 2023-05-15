@@ -126,11 +126,14 @@ class LinkedList
 
   def pop 
     @head == nil ? (return "List is empty") : nil 
-    prior_node = @head 
+    if count <= 1  
+      @head = nil
+    else  prior_node = @head 
     (count - 2).times do 
       prior_node = prior_node.next_node_pointer
       end  
       prior_node.next_node_pointer = nil
+    end 
     end 
 
 end
