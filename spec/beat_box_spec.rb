@@ -29,11 +29,11 @@ describe BeatBox do
     end 
 
     describe "append" do 
-      xit "splits multiple words into seperate nodes" do 
+      it "splits multiple words into seperate nodes" do 
         bbox = BeatBox.new
         bbox.append("bts pts kuh ts")
         expect(bbox.list.to_string).to eq ("bts pts kuh ts")
-        expect(bbox.count).to eq("4")
+        expect(bbox.count).to eq(4)
       end 
     end
 
@@ -43,7 +43,7 @@ describe BeatBox do
         bbox.append("ts")
         bbox.prepend("bts pts kuh")
         expect(bbox.list.to_string).to eq ("bts pts kuh ts")
-        expect(bbox.count).to eq("4")
+        expect(bbox.count).to eq(4)
       end 
     end 
 
