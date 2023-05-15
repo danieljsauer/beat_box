@@ -9,5 +9,11 @@ class BeatBox
   def count
     @list.count 
   end 
-  
+
+  def append(data)
+    words = data.split
+      words.each do |word|
+        @list.append(word)
+      end 
+  end 
 end 
