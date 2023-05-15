@@ -6,4 +6,8 @@ class BeatBox
     @list = LinkedList.new 
   end
 
+  def count
+    @list.count 
+  end 
+  
 end 
