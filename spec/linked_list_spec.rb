@@ -288,11 +288,12 @@ describe LinkedList do
         list.pop 
         expect(list.head.next_node_pointer).to be nil 
       end   
-      xit "can remove the head node if list only contains one item" do
+      it "can remove the head node if list only contains one item" do
         list = LinkedList.new
         list.append("bts")
         list.pop 
         expect(list.pop).to eq "List is empty"
+        expect(list.head).to be nil 
       end 
     end   
   end
