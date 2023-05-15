@@ -273,7 +273,7 @@ describe LinkedList do
     end
 
     describe "pop" do 
-      xit "removes the last element from the list" do 
+      it "removes the last element from the list" do 
         list = LinkedList.new
         list.append("bts")
         list.append("kuh")
@@ -281,13 +281,19 @@ describe LinkedList do
         expect(list.to_string).to eq ("bts")
         expect(list.count). to eq (1)
       end
-      xit "following a pop, new last items points to nil" do
+      it "following a pop, new last items points to nil" do
         list = LinkedList.new
         list.append("bts")
         list.append("kuh")
         list.pop 
         expect(list.head.next_node_pointer).to be nil 
       end   
+      xit "can remove the head node if list only contains one item" do
+        list = LinkedList.new
+        list.append("bts")
+        list.pop 
+        expect(list.pop).to eq "List is empty"
+      end 
     end   
   end
 
