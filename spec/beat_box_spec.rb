@@ -66,7 +66,37 @@ describe BeatBox do
         expect(bbox.prepend(42)).to eq("Invalid Entry")
       end
     end 
+  end 
 
+  describe "say method " do 
+    it "collects data as a string" do 
+      bbox = BeatBox.new
+      bbox.append("this is a test")
+      expect(bbox.play).to eq("this is a test")
+      expect(bbox.count).to eq(4)
+      #passes the ear check 
+    end
+
+    it "can lay down a serious beat" do 
+      bbox = BeatBox.new
+      bbox.append("boots n kicks boots n kicks boots n kicks boots n kicks boots n kicks")
+      bbox.play 
+      #ear check 
+    end 
+    it "can spit bars" do 
+      bbox = BeatBox.new
+      bbox.append("You 'bout to feel the chronicles of a bionical lyric
+      Lyrically splittin', dismissin'
+      I'm on a mission of just hittin'
+      Now it's written in kitten, hittin' with mittens
+      I'm missin', wishin', man, listen
+      I glisten like sun and water while fishin'
+      Bust the move and then swerve
+      Serve words with nerve, embedded, I said it, word
+      Damn, you nerd, man, you heard")
+      bbox.play 
+      #ear check 
+    end 
   end 
 
 end 
