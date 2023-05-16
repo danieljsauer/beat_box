@@ -1,8 +1,13 @@
 class BeatBox 
-  attr_reader :list 
+  attr_reader :list, :data, :rate, :voice 
+  attr_accessor :rate, :voice 
 
-  def initialize
+  def initialize(data = nil)
     @list = LinkedList.new 
+    @data = data
+    prepend(data)
+    @rate = 250
+    @voice = "Daniel"
   end
 
   def count
@@ -45,7 +50,30 @@ class BeatBox
 
   def play
     beat = @list.to_string
-    `say "#{beat}"`
+    `say -r #{rate} -v #{voice} "#{beat}"`
     beat 
   end 
+
+  def reset_rate
+    @rate = 250
+  end 
+
+  def reset_voice
+    @voice = "Daniel"
+  end
+
+  def rap_battle(voice1 = "Karen", voice2 = "Rishi")
+    verse = @list.to_string
+    half_length = (verse.length/2)
+
+    first_half = verse[0, half_length]
+    second_half = verse[half_length , half_length]
+    
+    @voice = voice1
+    `say -r 250 -v #{voice} "#{first_half}"`
+    @voice = voice2
+    `say -r 250 -v #{voice} "#{second_half}"`
+    verse 
+  end 
+  
 end 

@@ -14,6 +14,15 @@ describe BeatBox do
       bbox = BeatBox.new
       expect(bbox.list).to be_instance_of(LinkedList)
     end 
+    it "default data value is nil" do 
+      bbox = BeatBox.new
+      expect(bbox.data).to eq(nil)
+    end 
+    it "can pass through data" do 
+      bbox = BeatBox.new("plin plin plon")
+      expect(bbox.list.to_string).to eq ("plin plin plon")
+      expect(bbox.count).to eq (3) 
+    end 
   end 
 
   describe "LinkedList methods" do 
@@ -68,24 +77,63 @@ describe BeatBox do
     end 
   end 
 
-  describe "say method " do 
+  describe "play method and related voice methods" do 
     it "collects data as a string" do 
       bbox = BeatBox.new
-      bbox.append("this is a test")
-      expect(bbox.play).to eq("this is a test")
-      expect(bbox.count).to eq(4)
+      bbox.append("this is a string test")
+      expect(bbox.play).to eq("this is a string test")
+      expect(bbox.count).to eq(5)
       #passes the ear check 
     end
-
+    it "can change voice" do 
+      bbox = BeatBox.new
+      bbox.append("this is a voice change test")
+      bbox.play
+      bbox.voice = "Rishi"
+      bbox.play 
+      expect(bbox.voice).to eq("Rishi")
+      #ear check
+    end 
+    it "can change speech speed" do 
+      bbox = BeatBox.new
+      bbox.append("this is a rate speed test")
+      bbox.play 
+      bbox.rate = 500
+      bbox.play 
+      expect(bbox.rate).to eq(500)
+      #ear check
+    end 
+    it "can reset say voice" do
+      bbox = BeatBox.new
+      bbox.append("this is a voice reset method test")
+      bbox.play
+      bbox.voice = "Rishi"
+      bbox.play
+      bbox.reset_voice
+      bbox.play
+      expect(bbox.voice).to eq("Daniel")
+      #ear check
+    end 
+    it "can reset say speed" do 
+      bbox = BeatBox.new
+      bbox.append("this is a rate reset method test")
+      bbox.play
+      bbox.rate = 500  
+      bbox.play
+      bbox.reset_rate
+      bbox.play
+      expect(bbox.rate).to eq(250)
+      #ear check
+    end 
     it "can lay down a serious beat" do 
       bbox = BeatBox.new
-      bbox.append("boots n kicks boots n kicks boots n kicks boots n kicks boots n kicks")
-      bbox.play 
+      bbox.append("sh sh klack sh sh klack sh h klack boots kicks")
+      expect(bbox.play).to eq("sh sh klack sh sh klack sh h klack boots kicks")
       #ear check 
+      bbox.play 
     end 
-    it "can spit bars" do 
-      bbox = BeatBox.new
-      bbox.append("You 'bout to feel the chronicles of a bionical lyric
+    it "rap battle: default voices of Karen(AUS) & Rishi(India)" do 
+      bbox = BeatBox.new("You 'bout to feel the chronicles of a bionical lyric
       Lyrically splittin', dismissin'
       I'm on a mission of just hittin'
       Now it's written in kitten, hittin' with mittens
@@ -93,10 +141,32 @@ describe BeatBox do
       I glisten like sun and water while fishin'
       Bust the move and then swerve
       Serve words with nerve, embedded, I said it, word
-      Damn, you nerd, man, you heard")
-      bbox.play 
+      Damn, you nerd, man, you heard
+      Comin' from the town of Illy
+      And alleys are full of Phillies and Rallys
+      Suckers get silly as Sally then found in alleys, I'm rowdy, really!
+      So here we go, now holla if ya hear me though
+      Come and feel me... Flow")
+
+      bbox.rap_battle
+      expect(bbox.voice).to eq("Rishi")
       #ear check 
     end 
-  end 
+    it "can rap battle with custom voices" do 
+      bbox = BeatBox.new("Now this looks like a job for me
+      So everybody, just follow me
+      'Cause we need a little contro versy
+      'Cause it feels so empty without me
+      I said this looks like a job for me
+      So everybody, just follow me
+      'Cause we need a little contro versy
+      'Cause it feels so empty without me")
 
+      bbox.rap_battle("Bad News", "Good News")
+      expect(bbox.voice).to eq("Good News")
+      #ear check
+    end 
+  end 
 end 
+
+ 
