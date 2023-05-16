@@ -25,8 +25,8 @@ class BeatBox
           next  
         end 
       end 
-    else 
 
+    else 
       return "Invalid Entry"
     end 
   end 

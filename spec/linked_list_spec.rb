@@ -9,6 +9,7 @@ describe LinkedList do
       list = LinkedList.new
       expect(list).to be_instance_of(LinkedList)
     end 
+
     it "has a head with a default value of nil" do 
       list = LinkedList.new
       expect(list.head).to eq(nil)
@@ -123,12 +124,14 @@ describe LinkedList do
         expect(list.head.data).to eq("ts")
         expect(list.head.next_node_pointer).to be nil 
       end
+
       it "becomes the head node" do
         list = LinkedList.new
         list.append("bts")
         list.prepend("ts")
         expect(list.head.data).to eq("ts")
       end
+
       it "points towards the old head node if replacing head" do
         list = LinkedList.new
         list.append("bts")
@@ -136,6 +139,7 @@ describe LinkedList do
         expect(list.head.next_node_pointer.data).to eq("bts")
         expect(list.head.next_node_pointer.next_node_pointer).to be nil 
       end
+
       it "old head node points towards the next node in list" do
         list = LinkedList.new
         list.append("bts")
@@ -144,6 +148,7 @@ describe LinkedList do
         expect(list.head.next_node_pointer.next_node_pointer.data).to eq("kuh")
         expect(list.head.next_node_pointer.next_node_pointer.next_node_pointer).to be nil 
       end
+
       it "connects all nodes together properly" do
         list = LinkedList.new
         list.append("bts")
@@ -152,10 +157,12 @@ describe LinkedList do
         list.append("bts")
         expect(list.to_string).to eq("kuh bts ts bts") 
       end  
+
       it "only accepts string data"do
         list = LinkedList.new
         expect(list.append(42)).to eq ("Invalid Entry")
       end 
+
       it "data can only be 10 characters or fewer" do
         list = LinkedList.new
         expect(list.prepend("12345678901")).to eq ("Invalid Entry")
@@ -174,6 +181,7 @@ describe LinkedList do
         list.insert(1, "kuh")
         expect(list.head.next_node_pointer.data).to eq("kuh")
       end
+
       it "inserted node correctly points to next item on list" do
         list = LinkedList.new
         list.append("bts")
@@ -181,6 +189,7 @@ describe LinkedList do
         list.insert(1, "kuh")
         expect(list.head.next_node_pointer.next_node_pointer.next_node_pointer).to be nil 
       end 
+
       it "sets the head node if index position == 0" do
         list = LinkedList.new
         list.append("bts")
@@ -189,10 +198,12 @@ describe LinkedList do
         expect(list.head.data).to eq("kuh")
         expect(list.head.next_node_pointer.next_node_pointer.next_node_pointer).to be nil 
       end
+
       it "only accepts string data"do
         list = LinkedList.new
         expect(list.insert(0,42)).to eq("Invalid Entry")
       end 
+
       it "data can only be 10 characters or fewer" do
         list = LinkedList.new
         expect(list.insert(0, "12345678901")).to eq ("Invalid Entry")
@@ -201,10 +212,12 @@ describe LinkedList do
         expect(list.head.data).to eq("1234567890")
         expect(list.count).to eq (1)
       end 
+
       it "index only accepts integers"do
         list = LinkedList.new
         expect(list.insert("ts","ts")).to eq("Invalid Entry")
       end 
+
       it "index cannot be greater than list length" do
         list = LinkedList.new
         expect(list.insert(1,"kuh")).to eq("Invalid Entry")
@@ -218,18 +231,21 @@ describe LinkedList do
         list = LinkedList.new
         expect(list.find(0,1)).to eq("List is empty")
       end 
+
       it "only accepts integers as arguments" do
         list = LinkedList.new
         list.append("bts")
         expect(list.find("bts",1)).to eq("Invalid Entry")
         expect(list.find(0,"bts")).to eq("Invalid Entry")
       end 
+
       it "returns the data from the selected node" do
         list = LinkedList.new
         list.append("bts")
         list.append("kuh")
         expect(list.find(1,1)).to eq("kuh")
       end 
+
       it "can return multiple nodes of data in a string" do
         list = LinkedList.new
         list.append("bts")
@@ -238,6 +254,7 @@ describe LinkedList do
         list.append("ts")
         expect(list.find(1,3)).to eq("kuh pttz ts")
       end 
+
       it "does not break if the number argument exceeds the end of the list length" do 
         list = LinkedList.new
         list.append("bts")
@@ -251,16 +268,19 @@ describe LinkedList do
         list = LinkedList.new
         expect(list.includes?("bts")).to eq("List is empty")
       end 
+
       it "only accepts string data" do
         list = LinkedList.new
         list.append("bts")
         expect(list.includes?(42)).to eq("Invalid Entry")
       end   
+
       it "only accepts data with 10 or fewer characters" do
         list = LinkedList.new
         list.append("bts")
         expect(list.includes?("01234567891")).to eq("Invalid Entry")
       end   
+
       it "checks list for argued data" do
         list = LinkedList.new
         list.append("bts")
@@ -281,6 +301,7 @@ describe LinkedList do
         expect(list.to_string).to eq ("bts")
         expect(list.count). to eq (1)
       end
+
       it "following a pop, new last items points to nil" do
         list = LinkedList.new
         list.append("bts")
@@ -288,6 +309,7 @@ describe LinkedList do
         list.pop 
         expect(list.head.next_node_pointer).to be nil 
       end   
+
       it "can remove the head node if list only contains one item" do
         list = LinkedList.new
         list.append("bts")
@@ -295,7 +317,7 @@ describe LinkedList do
         expect(list.pop).to eq "List is empty"
         expect(list.head).to be nil 
       end 
-    end   
+    end 
   end
 
 end 

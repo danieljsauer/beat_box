@@ -143,7 +143,7 @@ class LinkedList
       @head = nil
 
     else prior_node = @head 
-    (count - 2).times do 
+      (count - 2).times do 
         prior_node = prior_node.next_node_pointer
       end  
       prior_node.next_node_pointer = nil
