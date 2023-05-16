@@ -1,5 +1,4 @@
 class BeatBox 
-  
   attr_reader :list 
 
   def initialize
@@ -18,11 +17,11 @@ class BeatBox
         if word.length <=10
           @list.append(word)
         else 
-          next 
+          next  
         end 
       end 
     else 
-      
+
       return "Invalid Entry"
     end 
   end 
@@ -44,4 +43,9 @@ class BeatBox
     end 
   end 
 
+  def play
+    beat = @list.to_string
+    `say "#{beat}"`
+    beat 
+  end 
 end 
