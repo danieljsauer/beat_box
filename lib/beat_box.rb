@@ -61,5 +61,19 @@ class BeatBox
   def reset_voice
     @voice = "Daniel"
   end
+
+  def rap_battle(voice1 = "Karen", voice2 = "Rishi")
+    verse = @list.to_string
+    half_length = (verse.length/2)
+
+    first_half = verse[0, half_length]
+    second_half = verse[half_length , half_length]
+    
+    @voice = voice1
+    `say -r 250 -v #{voice} "#{first_half}"`
+    @voice = voice2
+    `say -r 250 -v #{voice} "#{second_half}"`
+    verse 
+  end 
   
 end 
