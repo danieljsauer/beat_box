@@ -80,7 +80,7 @@ class LinkedList
     else
       items = []
       current_node = @head 
-      items << head.data 
+      items << current_node.data 
       until current_node.next_node_pointer == nil 
         current_node = current_node.next_node_pointer
         items << current_node.data 
