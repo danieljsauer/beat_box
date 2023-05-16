@@ -78,14 +78,14 @@ describe BeatBox do
   end 
 
   describe "play method and related voice methods" do 
-    xit "collects data as a string" do 
+    it "collects data as a string" do 
       bbox = BeatBox.new
       bbox.append("this is a string test")
       expect(bbox.play).to eq("this is a string test")
       expect(bbox.count).to eq(5)
       #passes the ear check 
     end
-    xit "can change voice" do 
+    it "can change voice" do 
       bbox = BeatBox.new
       bbox.append("this is a voice change test")
       bbox.play
@@ -94,7 +94,7 @@ describe BeatBox do
       expect(bbox.voice).to eq("Rishi")
       #ear check
     end 
-    xit "can change speech speed" do 
+    it "can change speech speed" do 
       bbox = BeatBox.new
       bbox.append("this is a rate speed test")
       bbox.play 
@@ -103,7 +103,7 @@ describe BeatBox do
       expect(bbox.rate).to eq(500)
       #ear check
     end 
-    xit "can reset say voice" do
+    it "can reset say voice" do
       bbox = BeatBox.new
       bbox.append("this is a voice reset method test")
       bbox.play
@@ -114,7 +114,7 @@ describe BeatBox do
       expect(bbox.voice).to eq("Daniel")
       #ear check
     end 
-    xit "can reset say speed" do 
+    it "can reset say speed" do 
       bbox = BeatBox.new
       bbox.append("this is a rate reset method test")
       bbox.play
@@ -125,12 +125,46 @@ describe BeatBox do
       expect(bbox.rate).to eq(250)
       #ear check
     end 
-    xit "can lay down a serious beat" do 
+    it "can lay down a serious beat" do 
       bbox = BeatBox.new
       bbox.append("sh sh klack sh sh klack sh h klack boots kicks")
       expect(bbox.play).to eq("sh sh klack sh sh klack sh h klack boots kicks")
       #ear check 
       bbox.play 
+    end 
+    it "rap battle: default voices of Karen(AUS) & Rishi(India)" do 
+      bbox = BeatBox.new("You 'bout to feel the chronicles of a bionical lyric
+      Lyrically splittin', dismissin'
+      I'm on a mission of just hittin'
+      Now it's written in kitten, hittin' with mittens
+      I'm missin', wishin', man, listen
+      I glisten like sun and water while fishin'
+      Bust the move and then swerve
+      Serve words with nerve, embedded, I said it, word
+      Damn, you nerd, man, you heard
+      Comin' from the town of Illy
+      And alleys are full of Phillies and Rallys
+      Suckers get silly as Sally then found in alleys, I'm rowdy, really!
+      So here we go, now holla if ya hear me though
+      Come and feel me... Flow")
+
+      bbox.rap_battle
+      expect(bbox.voice).to eq("Rishi")
+      #ear check 
+    end 
+    it "can rap battle with custom voices" do 
+      bbox = BeatBox.new("Now this looks like a job for me
+      So everybody, just follow me
+      'Cause we need a little contro versy
+      'Cause it feels so empty without me
+      I said this looks like a job for me
+      So everybody, just follow me
+      'Cause we need a little contro versy
+      'Cause it feels so empty without me")
+
+      bbox.rap_battle("Bad News", "Good News")
+      expect(bbox.voice).to eq("Good News")
+      #ear check
     end 
   end 
 end 
